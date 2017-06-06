@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.hello-react-city-picker {
+  color: #F00;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  button {
+    background: #3cc51f;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: #FFF;
+    padding: 20px;
+    border: none;
+
+    &:active {
+      background: darken(#3cc51f, 10%);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+  input {
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+    margin: 30px auto;
+  }
+}
+
+
