@@ -10,25 +10,39 @@
 
 ## properties:
 ```javascript
- static propTypes = {
-    header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    body: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    buttons: PropTypes.array,
-    theme: PropTypes.oneOf(['ios', 'tranparent']),
-    className: PropTypes.string,
-    backdropStyle: PropTypes.object,
-    onClick: PropTypes.func
-  }
+
 ```
 
 
 ## usage:
 ```javascript
-import {ReactCitySelect} from 'react-city-picker';
+import {ReactCityPicker} from 'react-city-picker';
+state = {
+    city_show: false,
+    city_value: ''
+  };
 
- <div className="hello-react-city-picker">
-          <ReactCitySelect/>
- </div>
-}
+  _onChangeCity(inItem) {
+    this.setState({city_value: inItem, city_show: false})
+  }
+
+  render() {
+    return (
+      <section className="hello-react-city-picker">
+
+        <input type="text" value={this.state.city_value} placeholder="select city" onClick={e => {
+          e.preventDefault();
+          this.setState({city_show: true})
+        }} readOnly={true}/>
+        <ReactCityPicker
+          data={cnCity}
+          onCancel={e => this.setState({city_show: false})}
+          onChange={this._onChangeCity.bind(this)}
+          show={this.state.city_show}
+        />
+      </section>
+
+    );
+  }
 
 ```
